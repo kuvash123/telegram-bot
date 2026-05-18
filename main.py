@@ -12,14 +12,14 @@ print("SESSION =", SESSION)
 
 client = TelegramClient(StringSession(SESSION), api_id, api_hash)
 
-KEYWORDS = ['прайс', 'расчет', 'фулик', 'фулфилмент', 'фф', 'стоимость', 
-'рассчет']
+KEYWORDS = ['прайс', 'расчет', 'фулик', 'фулфилмент', 'фф', 'стоимость', 'рассчет']
 
 @client.on(events.NewMessage)
 async def handler(event):
     try:
         text = event.raw_text.lower()
-
+BAD_WORDS = ['сайт', 'вакансия', 'резюме','кеш', 'выплачен', 'выплаты', 'заработок', 'доход','деньги', 'реклама']
+        
         if not any(word in text for word in KEYWORDS):
             return
 
