@@ -22,7 +22,7 @@ async def handler(event):
         text = event.raw_text.lower()
 
         if any(word in text for word in BAD_WORDS):
-    return
+            return
     
         if not any(word in text for word in KEYWORDS):
             return
